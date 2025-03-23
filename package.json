@@ -1,0 +1,22 @@
+{
+  "name": "your-project-name",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node start.js",
+    "setup": "node setup.js",
+    "install-all": "npm install && cd my-app && npm install",
+    "backend": "cd backend && python manage.py runserver 8000",
+    "frontend": "cd my-app && npm start"
+  },
+  "dependencies": {
+    "@tailwindcss/forms": "^0.5.10",
+    "axios": "^1.8.1",
+    "react-router-dom": "^7.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^8.2.2",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.9"
+  }
+}

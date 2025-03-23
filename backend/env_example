@@ -1,0 +1,20 @@
+# Directory where Langflow will store files, logs, and the database
+LANGFLOW_CONFIG_DIR=
+
+# Ensure the database is saved in the specified config directory
+LANGFLOW_SAVE_DB_IN_CONFIG_DIR=
+
+# Alternatively, directly specify the database URL
+LANGFLOW_DATABASE_URL=
+SESSION_COOKIE_SECURE=
+CSRF_COOKIE_SECURE=
+SECURE_SSL_REDIRECT=
+PYTHONDONTWRITEBYTECODE=
+PYTHONUNBUFFERED=
+AZURE_API_KEY=
+AZURE_OPENAI_API_KEY=
+AZURE_OPENAI_ENDPOINT=
+AZURE_OPENAI_API_VERSION=
+GEMINI_API_KEY=
+DEBUG=
+CSRF_TRUSTED_ORIGINS=

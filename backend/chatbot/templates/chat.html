@@ -1,0 +1,85 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Home - FarmSphere.AI{% endblock %}
+
+{% block content %}
+
+
+        <!-- Introduction Section -->
+        <div class=" flex flex-col justify-center items-center bg-gray-100">
+    <!-- Introduction Section -->
+    <section class="w-full max-w-4xl text-center mb-12 p-6 bg-green-50 rounded-lg shadow-md">
+        <h2 class="text-3xl font-bold text-green-600 mb-4">Welcome to FarmSphere.AI</h2>
+        <p class="text-lg text-gray-700">
+            FarmSphere.AI is your trusted farming assistant, providing solutions tailored for modern agriculture. Ask us anything, and we’ll help you make informed decisions for your farm.
+        </p>
+    </section>
+
+    <!-- Chatbox Section -->
+    <section class="w-full max-w-4xl bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-2xl font-semibold text-green-600 mb-4">Ask Your Farming Questions</h3>
+        <form id="query-form" class="space-y-4" onsubmit="sendMessage(event);">
+            <textarea id="message" name="message" 
+                      class="w-full p-4 border-2 border-gray-300 rounded-lg shadow-sm text-lg" 
+                      placeholder="Type your question here..." required rows="5"></textarea>
+            <button type="submit" id="askAI"
+                    class="w-full bg-green-600 text-white py-3 rounded-lg text-lg font-semibold hover:bg-green-700 transition">
+                Ask
+            </button>
+        </form>
+        <div id="response" class="mt-6 p-4 bg-green-100 border-2 border-green-600 rounded-lg text-lg text-gray-700 prose">
+          
+            <!-- Chatbot response will be displayed here -->
+        </div>
+    </section>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script>
+        async function sendMessage(event) {
+            event.preventDefault();
+            const messageInput = document.getElementById('message');
+            const message = messageInput.value;
+            messageInput.value = 'loading...';
+            const submitButton = document.getElementById('askAI');
+
+            // Disable the button and change its text
+            submitButton.innerText = 'Processing...';
+            submitButton.disabled = true;
+
+
+            const response = await fetch("{% url 'chatAPI' %}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: new URLSearchParams({'message': message})
+            });
+            const data = await response.json();
+            document.getElementById('response').innerHTML = marked.parse(data.response);
+            submitButton.disabled = false;
+            submitButton.innerText = 'Ask';
+            messageInput.value = '';
+        }
+
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    </script>
+{% endblock %}

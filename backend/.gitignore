@@ -1,0 +1,19 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
+*/.env
+.DS_Store
+aci-deploy.yaml
+db.sqlite3
+langflowData
+
+.idea
+*/*/db

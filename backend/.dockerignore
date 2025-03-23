@@ -1,0 +1,9 @@
+venv
+.gitignore
+.git
+README.md
+
+.venv
+.env
+.DS_Store
+aci-deploy.yaml

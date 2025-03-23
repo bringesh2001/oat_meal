@@ -1,0 +1,67 @@
+{% extends 'base.html' %} {% block title %}Sign Up - FarmSphere.AI{% endblock %}
+{%block content %}
+<section
+  class="auth-section max-w-md mx-auto bg-white p-8 rounded-lg shadow-md"
+>
+  <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Sign Up</h2>
+
+  <form method="POST" class="auth-form" action="{% url 'register' %}">
+    {% csrf_token %}
+
+    <label for="email">Email:</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="Enter your email"
+      required
+    />
+
+    <label for="username">Username:</label>
+    <input
+      type="username"
+      id="username"
+      name="username"
+      placeholder="Enter your username"
+      required
+    />
+
+    <label for="password1">Password:</label>
+    <input
+      type="password"
+      id="password1"
+      name="password1"
+      placeholder="Enter your password"
+      required
+    />
+
+    <label for="password1">Confirm Password:</label>
+    <input
+      type="password"
+      id="password2"
+      name="password2"
+      placeholder="Enter your password again"
+      required
+    />
+
+    <button
+      type="submit"
+      class="w-full bg-green-600 text-white py-3 rounded-lg text-lg font-semibold hover:bg-green-700 transition"
+    >
+      Sign Up
+    </button>
+  </form>
+  {% if messages %}
+  <div class="mb-4">
+    {% for message in messages %}
+    <p class="text-red-600 text-sm">{{ message }}</p>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <p class="text-center mt-4">
+    Already have an account?
+    <a href="{% url 'login' %}" class="text-green-600 hover:underline">Login</a>
+  </p>
+</section>
+{% endblock %}

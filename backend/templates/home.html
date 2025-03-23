@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to our platform!</h1>
+        {% if user.is_authenticated %}
+            <p class="lead">Hello, {{ user.username }}! You are now logged in.</p>
+            <hr class="my-4">
+            <p>You can now use our services.</p>
+            <a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button">Logout</a>
+        {% else %}
+            <p class="lead">Please log in or sign up to use our services.</p>
+            <hr class="my-4">
+            <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Login</a>
+            <a class="btn btn-success btn-lg" href="{% url 'signup' %}" role="button">Sign Up</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %} 

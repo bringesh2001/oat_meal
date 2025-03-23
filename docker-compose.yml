@@ -1,0 +1,66 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend_container
+    volumes:
+      - frontend_data:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend_container
+    volumes:
+      - backend_data:/app
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./.env
+    environment:
+      DJANGO_SETTINGS_MODULE: "backend.settings"
+    depends_on:
+      - chatbot
+
+  chatbot:
+    build:
+      context: ./chatbot
+      dockerfile: Dockerfile
+    container_name: chatbot_container
+    volumes:
+      - chatbot_data:/app
+    ports:
+      - "8001:8001"
+    env_file:
+      - ./.env
+    environment:
+      - CHATBOT_ENV=development
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx_container
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+      - ./docker/nginx/ssl:/etc/nginx/ssl
+    depends_on:
+      - frontend
+      - backend
+      - chatbot
+
+volumes:
+  frontend_data:
+  backend_data:
+  chatbot_data: 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Test Page</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    button { padding: 10px; margin: 5px; }
+    pre { background: #f0f0f0; padding: 10px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>API Test Page</h1>
+  
+  <div>
+    <button id="testApi">Test Basic API</button>
+    <button id="testCountries">Test Countries API</button>
+  </div>
+  
+  <h2>Results:</h2>
+  <pre id="results">Click a button to test the API</pre>
+  
+  <script>
+    document.getElementById('testApi').addEventListener('click', async () => {
+      const results = document.getElementById('results');
+      results.textContent = 'Testing API...';
+      
+      try {
+        const response = await fetch('http://localhost:8000/test-api/');
+        const status = response.status;
+        results.textContent = `API Response Status: ${status}\n`;
+        
+        if (response.ok) {
+          const data = await response.json();
+          results.textContent += `API Data: ${JSON.stringify(data, null, 2)}`;
+        } else {
+          results.textContent += 'Failed to get data';
+        }
+      } catch (error) {
+        results.textContent = `Error: ${error.message}`;
+      }
+    });
+    
+    document.getElementById('testCountries').addEventListener('click', async () => {
+      const results = document.getElementById('results');
+      results.textContent = 'Testing Countries API...';
+      
+      try {
+        const response = await fetch('http://localhost:8000/api/countries/');
+        const status = response.status;
+        results.textContent = `Countries API Response Status: ${status}\n`;
+        
+        if (response.ok) {
+          const data = await response.json();
+          results.textContent += `Countries Data: ${JSON.stringify(data, null, 2)}`;
+        } else {
+          results.textContent += 'Failed to get countries data';
+        }
+      } catch (error) {
+        results.textContent = `Error: ${error.message}`;
+      }
+    });
+  </script>
+</body>
+</html> 

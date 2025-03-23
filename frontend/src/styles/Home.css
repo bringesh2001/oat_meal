@@ -1,0 +1,374 @@
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+/* Welcome content for non-authenticated users */
+.welcome-content {
+  text-align: center;
+  max-width: 600px;
+  padding: 3rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-content h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.welcome-content p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.home-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.home-button {
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.home-button.primary {
+  background-color: #4285F4;
+  color: white;
+  border: none;
+}
+
+.home-button.primary:hover {
+  background-color: #3367d6;
+  transform: translateY(-2px);
+}
+
+.home-button.secondary {
+  background-color: white;
+  color: #4285F4;
+  border: 2px solid #4285F4;
+}
+
+.home-button.secondary:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-2px);
+}
+
+.home-button.tertiary {
+  background-color: #34a853;
+  color: white;
+  border: none;
+}
+
+.home-button.tertiary:hover {
+  background-color: #2d9144;
+  transform: translateY(-2px);
+}
+
+/* Loading state */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Simple welcome message that appears for all users */
+.simple-welcome {
+  text-align: center;
+  margin: 10rem auto;
+}
+
+.simple-welcome h1 {
+  font-size: 3rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Empty container for non-authenticated users */
+.home-container-empty {
+  width: 100%;
+  height: 100%;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Welcome section for logged out users */
+.welcome-section {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.welcome-section h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.welcome-section p {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #3498db;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #3498db;
+  border: 2px solid #3498db;
+}
+
+.btn-secondary:hover {
+  background-color: #f8f9fa;
+}
+
+/* Features section for logged out users */
+.features-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.feature {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature h2 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.feature p {
+  color: #7f8c8d;
+}
+
+/* Dashboard for logged in users */
+.dashboard {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.welcome-header {
+  background-color: #3498db;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.welcome-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-header p {
+  opacity: 0.9;
+}
+
+.account-info, .quick-actions, .directories-section {
+  padding: 2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.account-info h2, .quick-actions h2, .directories-section h2 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+/* Directories Grid */
+.directories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.directory-card {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.directory-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.directory-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.directory-card h3 {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.directory-card p {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.directory-link {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background-color: #3498db;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.directory-link:hover {
+  background-color: #2980b9;
+}
+
+/* Add new directory card */
+.directory-card.add-new {
+  background-color: rgba(52, 152, 219, 0.05);
+  border: 2px dashed #3498db;
+}
+
+.directory-card.add-new .directory-icon {
+  color: #3498db;
+}
+
+.directory-card.add-new .directory-link {
+  background-color: #2ecc71;
+}
+
+.directory-card.add-new .directory-link:hover {
+  background-color: #27ae60;
+}
+
+.info-card {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.info-card p {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  color: #34495e;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.action-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  flex: 1;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background-color: #3498db;
+  color: white;
+  border: none;
+}
+
+.action-btn:hover {
+  background-color: #2980b9;
+}
+
+.action-btn.secondary {
+  background-color: #e74c3c;
+}
+
+.action-btn.secondary:hover {
+  background-color: #c0392b;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: 4px;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .cta-buttons, .action-buttons {
+    flex-direction: column;
+  }
+  
+  .features-section, .directories-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .welcome-header h1 {
+    font-size: 1.5rem;
+  }
+}
