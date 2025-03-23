@@ -1,6 +1,6 @@
 # OAT Web Application
 
-A full-stack web application with separate frontend, backend, and chatbot components.
+A full-stack web application with separate frontend, backend, and chatbot components. The newage Farmers market place.
 
 ## Project Structure
 
