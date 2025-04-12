@@ -97,9 +97,7 @@ A full-stack web application with separate frontend, backend, and chatbot compon
 4. Push to the branch
 5. Create a Pull Request
 
-## License
 
-[Your chosen license]
 
 ## Features
 
