@@ -114,10 +114,7 @@ A full-stack web application with separate frontend, backend, and chatbot compon
 - Docker Compose
 - Python 3.12 (for local development)
 
-## Accessing the Application
 
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:8000/api
 
 ## Docker Commands
 
